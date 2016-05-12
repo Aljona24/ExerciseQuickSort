@@ -8,30 +8,32 @@ namespace ExerciseQuickSort
 {
     public static class Sorting
     {
-        public static void QuickSort(int[] a, int l, int r)
+        // variable name
+        // while/if bloks
+        public static void QuickSort(int[] array, int leftIndex, int rightIndex)
         {
             int temp;
-            int x = a[l + (r - l) / 2];
-            int i = l;
-            int j = r;
+            int x = array[leftIndex + (rightIndex - leftIndex) / 2];
+            int i = leftIndex;
+            int j = rightIndex;
             while (i <= j)
             {
-                while (a[i] < x) i++;
-                while (a[j] > x) j--;
+                while (array[i] < x) { i++; }
+                while (array[j] > x) { j--; }
                 if (i <= j)
                 {
-                    temp = a[i];
-                    a[i] = a[j];
-                    a[j] = temp;
+                    temp = array[i];
+                    array[i] = array[j];
+                    array[j] = temp;
                     i++;
                     j--;
                 }
             }
-            if (i < r)
-               QuickSort(a, i, r);
+            if (i < rightIndex)
+            { QuickSort(array, i, rightIndex); }
 
-            if (l < j)
-               QuickSort(a, l, j);
+            if (leftIndex < j)
+            { QuickSort(array, leftIndex, j); }
         }
     }
 }
